@@ -1,0 +1,7 @@
+{
+  "name": "Unblock NSFW",
+  "version": "1.0.0",
+  "description": "Removes the age restriction on NSFW channels.",
+  "author": "SebbyLaw",
+  "license": "MIT"
+}
