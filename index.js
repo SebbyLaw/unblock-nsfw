@@ -43,7 +43,7 @@ module.exports = class UnblockNSFW extends Plugin {
     }
 
     setNSFW(b) {
-        Object.defineProperty(this.agetCurrentUser(), 'nsfwAllowed', {get: () => b});
+        Object.defineProperty(this.a.getCurrentUser(), 'nsfwAllowed', {get: () => b});
     }
 
     async onDiscordStart() {
