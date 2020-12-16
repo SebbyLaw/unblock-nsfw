@@ -40,12 +40,55 @@ module.exports = class UnblockNSFW extends Plugin {
         }
         if (ConnectionStore.isConnected()) listener()
         else ConnectionStore.addChangeListener(listener)
-    }
+        powercord.api.commands.registerCommand({
+            command: 'nsfw',
+            aliases: [],
+            description: 'Toggle The Discord NSFW control',
+            usage: '{c} <subcommand>',
+            executor: (args) => {
+                const subcommand = commands[args[0]];
+                if (!subcommand) 
+                    return {
+                        send: false,
+                        result: {
+                          type: "rich",
+                          author: { name: "Powercord" },
+                          title: "Invalid subcommand",
+                          description: `${args[0]} is not a valid subcommand. Specify one of enable or disable`
+                        },
+                   };
+                if (subcommand === "enable") {
+                    this.setNSFW(true);
+                } else {
+                    if (subcommand === "disable") {
+                        this.setNSFW(false);
+                    } else {
+                        return {
+                            send: false,
+                            result: {
+                            type: "rich",
+                            title: "Invalid subcommand",
+                            description: `${args[0]} is not a valid subcommand. Specify one of enable or disable`
+                        }
+                    };
+                };
+                 return {
+                    send: false,
+                    result: {
+                    type: "rich",
+                    title: "Sucess",
+                    description: `Toggled your NSFW settings`
+                       }
+                 }
+           }
+   		}
+      });
+   }
 
     setNSFW(b) {
         Object.defineProperty(this.a.getCurrentUser(), 'nsfwAllowed', {get: () => b});
     }
-
+    
     async onDiscordStart() {
         original = this.a.getCurrentUser().nsfwAllowed;
         this.setNSFW(true);
@@ -53,5 +96,6 @@ module.exports = class UnblockNSFW extends Plugin {
     
     pluginWillUnload () { 
         this.setNSFW(original); 
+        powercord.api.commands.unregisterCommand('nsfw');
     }
 }
