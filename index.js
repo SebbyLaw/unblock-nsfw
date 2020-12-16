@@ -47,6 +47,7 @@ module.exports = class UnblockNSFW extends Plugin {
             usage: '{c} <subcommand>',
             executor: (args) => {
                 const subcommand = args[0];
+                var stat = null;
                 if (!subcommand) 
                     return {
                         send: false,
@@ -58,10 +59,10 @@ module.exports = class UnblockNSFW extends Plugin {
                         },
                    };
                 if (subcommand === "enable") {
-                    const stat = true;
+                    stat = true;
                 } else {
                     if (subcommand === "disable") {
-                        const stat = false;
+                        stat = false;
                     } else {
                         return {
                             send: false,
