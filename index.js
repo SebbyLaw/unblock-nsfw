@@ -86,7 +86,15 @@ module.exports = class UnblockNSFW extends Plugin {
             autocomplete: (args) => {
                 if (args[0] !== void 0 && args.length === 1) {
                   return {
-                    commands: ["enable","disable"],
+                    commands: [
+                        {
+                            command: "enable",
+                            description: "Enable NSFW"
+                        },
+                        {
+                            command: "disable",
+                            description: "disable NSFW"
+                        }],
                     header: "neko subcommands",
                   };
                 }
