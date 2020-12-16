@@ -46,7 +46,7 @@ module.exports = class UnblockNSFW extends Plugin {
             description: 'Toggle The Discord NSFW control',
             usage: '{c} <subcommand>',
             executor: (args) => {
-                const subcommand = commands[args[0]];
+                const subcommand = args[0];
                 if (!subcommand) 
                     return {
                         send: false,
