@@ -58,10 +58,10 @@ module.exports = class UnblockNSFW extends Plugin {
                         },
                    };
                 if (subcommand === "enable") {
-                    this.setNSFW(true);
+                    const stat = true;
                 } else {
                     if (subcommand === "disable") {
-                        this.setNSFW(false);
+                        const stat = false;
                     } else {
                         return {
                             send: false,
@@ -73,15 +73,31 @@ module.exports = class UnblockNSFW extends Plugin {
                     };
                 };
                 };
+                this.setNSFW(stat);
                  return {
                     send: false,
                     result: {
                     type: "rich",
                     title: "Sucess",
-                    description: `Toggled your NSFW settings`
+                    description: `Toggled NSFW settings to ${stat} `
                        }
                  }
-           }
+           },
+            autocomplete: (args) => {
+                if (args[0] !== void 0 && args.length === 1) {
+                  return {
+                    commands: ["enable","disable"],
+                    header: "neko subcommands",
+                  };
+                }
+
+                const subcommand = commands[args[0]];
+                if (!subcommand || !subcommand.autocomplete) {
+                  return false;
+                }
+
+                return subcommand.autocomplete(args.slice(1));
+              },
       });
    }
 
