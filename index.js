@@ -91,7 +91,7 @@ module.exports = class UnblockNSFW extends Plugin {
                   };
                 }
 
-                const subcommand = commands[args[0]];
+                const subcommand = ["enable","disable"].contains(args[0]]);
                 if (!subcommand || !subcommand.autocomplete) {
                   return false;
                 }
