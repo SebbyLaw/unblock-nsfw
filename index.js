@@ -1,39 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
-@Daggy1234
-Daggy1234 /
-unblock-nsfw
-forked from SebbyLaw/unblock-nsfw
-
-0
-0
-
-    1
-
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-unblock-nsfw/index.js /
-@Daggy1234
-Daggy1234 Remove dumb shit
-Latest commit 226aa88 5 minutes ago
-History
-2 contributors
-@SebbyLaw
-@Daggy1234
-101 lines (93 sloc) 3.72 KB
 /*
  * MIT License
  * 
