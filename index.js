@@ -53,7 +53,6 @@ module.exports = class UnblockNSFW extends Plugin {
                         send: false,
                         result: {
                           type: "rich",
-                          author: { name: "Powercord" },
                           title: "Invalid subcommand",
                           description: `${args[0]} is not a valid subcommand. Specify one of enable or disable`
                         },
@@ -96,7 +95,7 @@ module.exports = class UnblockNSFW extends Plugin {
                             command: "disable",
                             description: "disable NSFW"
                         }],
-                    header: "neko subcommands",
+                    header: "unblock-nsfw subcommands",
                   };
                 }
 
